@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>考題隨機洗牌產生器｜Emily AI Studio</title>
+<style>
+:root{font-family:"Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;color:#e8f6ff;background:#061127;color-scheme:dark;--cyan:#31d9ff;--gold:#ffc05b;--panel:#0b1d38;--line:#1b456c}*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 50% 10%,#102b51 0,#081832 48%,#040b1c 100%);background-attachment:fixed}button,textarea,input{font:inherit}button{cursor:pointer;border:1px solid transparent;border-radius:10px;font-weight:700;padding:11px 15px;transition:transform .18s,box-shadow .18s,background .18s}button:hover{transform:translateY(-1px);box-shadow:0 5px 18px #03bff544}button:focus-visible,textarea:focus-visible,input:focus-visible{outline:3px solid #55e5ff;outline-offset:2px}.primary{background:linear-gradient(120deg,#087ec3,#13b9d7);color:#031327}.secondary{background:#153b63;color:#a9edff;border-color:#21618a}.outline{background:#0d2441;border-color:#285278;color:#d9f6ff}.danger{background:#fff0f0;color:#a32626}.top{position:relative;isolation:isolate;min-height:310px;padding:36px clamp(20px,5vw,72px);display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;color:white;background:linear-gradient(90deg,#031329dd 0%,#061c42a6 52%,#061c4240 100%),linear-gradient(0deg,#061127 0%,transparent 55%),url("assets/tech-classroom.png") center 58%/cover no-repeat;border-bottom:1px solid #20cfff77}.top:after{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(circle at 76% 15%,#31d9ff22,transparent 36%);pointer-events:none}.brand{font-size:.76rem;letter-spacing:.2em;text-transform:uppercase;color:#78e8ff;margin-bottom:11px;text-shadow:0 0 16px #00cfff}.top h1{margin:0 0 8px;font-size:clamp(1.55rem,3vw,2.35rem);text-shadow:0 3px 18px #001021}.top p{margin:0;max-width:880px;color:#d8efff;font-size:.98rem;line-height:1.65}.top .signature{margin-top:14px;color:#ffcf82;font-size:.83rem;letter-spacing:.04em}.layout{display:grid;grid-template-columns:minmax(320px,.88fr) minmax(450px,1.25fr);gap:20px;padding:20px;max-width:1720px;margin:auto}.panel{background:linear-gradient(145deg,#0c2342f5,#081831f5);border:1px solid #1c4b70;border-radius:16px;box-shadow:0 12px 34px #0007,inset 0 1px #8befff0c;padding:20px;min-width:0}.side{align-self:start;position:sticky;top:15px}.panel h2{font-size:1.13rem;margin:0 0 14px;color:#e9faff}.hint{color:#a5bfd3;font-size:.88rem;line-height:1.65}.settings{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0}.field{display:grid;gap:5px;font-size:.86rem;font-weight:700;color:#c7e5f5}.field input{border:1px solid #265173;background:#07162d;color:#f2fbff;border-radius:9px;padding:9px 11px;width:100%}textarea{display:block;resize:vertical;width:100%;min-height:400px;border:1px solid #265173;border-radius:11px;padding:13px 14px;line-height:1.65;font-size:.92rem;background:#06142a;color:#e6f7ff}textarea::placeholder,input::placeholder{color:#7895ac}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.message{margin-top:12px;padding:10px 12px;border-radius:9px;font-size:.88rem;white-space:pre-wrap;line-height:1.55}.message.ok{background:#073b38;color:#a5ffe2;border:1px solid #13786b}.message.error{background:#4b2027;color:#ffd4cf;border:1px solid #9a4147}.message:empty{display:none}.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}.tab{background:#102c4b;border-color:#244968;color:#abc4da}.tab.active{background:#0da8c6;color:#031627;border-color:#4de3fa}.toolbar{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-bottom:14px}.counter{color:#89b0ca;font-size:.87rem}.paper{max-width:800px;margin:auto;background:#fff;border:1px solid #d2e2ef;box-shadow:0 4px 24px #0005;padding:34px 36px;min-height:600px;color:#111827;font-family:"Noto Serif TC","PMingLiU",serif}.paper h2{text-align:center;margin:0 0 8px;font-size:1.36rem;color:#111827}.paper .meta{border-bottom:1px solid #222;padding-bottom:12px;margin-bottom:24px;display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;font-size:.95rem}.question{break-inside:avoid;page-break-inside:avoid;margin-bottom:23px;line-height:1.7}.q-title{font-weight:600;white-space:pre-wrap;margin-bottom:7px}.choices{display:grid;grid-template-columns:1fr 1fr;gap:4px 12px;margin-left:22px}.choice{white-space:pre-wrap;overflow-wrap:anywhere}.answers{width:100%;border-collapse:collapse;margin-top:16px;table-layout:fixed}.answers th,.answers td{border:1px solid #333;text-align:center;padding:9px 4px}.answers th{background:#f0f0f0}.empty{text-align:center;color:#71869b;padding:80px 12px}.foot{text-align:center;color:#7fa4bf;font-size:.78rem;padding:10px 24px 22px}.print-only{display:none}details{margin-top:13px;background:#08182e;border:1px solid #1c4264;border-radius:10px;padding:10px 12px;font-size:.88rem;color:#b8d1e2}summary{cursor:pointer;font-weight:700;color:#d8f5ff}code{font-family:Consolas,monospace}#printHost{display:none}@media(max-width:1050px){.layout{grid-template-columns:1fr}.side{position:static}textarea{min-height:260px}}@media(max-width:540px){.layout{padding:10px;gap:10px}.panel{padding:13px}.top{min-height:245px;padding:22px 18px;background-position:57% 55%}.top h1{font-size:1.45rem}.paper{padding:18px 16px}.choices{grid-template-columns:1fr}.settings{grid-template-columns:1fr}}
+@page{size:A4 portrait;margin:16mm 14mm}@media print{body{background:white!important;color:#111!important}.top,.layout,.foot,#printHost:not(.printing){display:none!important}#printHost.printing{display:block!important}.paper{max-width:none;border:0;box-shadow:none;padding:0;min-height:0}.paper .meta{margin-bottom:20px}.question{break-inside:avoid}.choices{grid-template-columns:1fr 1fr}.answers th{background:white}.print-only{display:block}}
+</style>
+</head>
+<body>
+<header class="top"><div class="brand">EMILY AI STUDIO · DIGITAL CLASSROOM</div><h1>📝 考題隨機洗牌產生器</h1><p>A 卷保留原題序與選項｜B 卷重新排序題目及選項，並自動更新答案</p><div class="signature">設計 by 楊依依老師｜Emily AI Studio</div></header>
+<main class="layout">
+<section class="panel side" aria-label="題目輸入區"><h2>① 貼上原始題目</h2><p class="hint">支援出版社格式「4.（③）題幹 ①選項 ②選項 ③選項 ④選項」、選項同行或分行，以及 A～D 格式。答案可寫在題首（③），或在題末寫「答案：③」；題目不必空行。</p>
+<div class="settings"><label class="field">試卷標題<input id="titleInput" value="國小學習評量" maxlength="80"></label><label class="field">班級／科目<input id="subjectInput" value="三年級｜綜合練習" maxlength="80"></label></div>
+<textarea id="source" spellcheck="false" aria-label="題目原始文字"></textarea>
+<div class="actions"><button class="primary" id="generate">🎲 生成 A／B 卷</button><button class="secondary" id="example">載入範例</button><button class="outline" id="clear">清空題目</button></div>
+<div class="message" id="message" role="status" aria-live="polite"></div>
+<details><summary>題目格式範例與使用說明</summary><pre style="white-space:pre-wrap;line-height:1.6">1. 下列哪個數是偶數？
+A. 3
+B. 7
+C. 8
+D. 9
+答案：C
+
+2. 臺灣的首都是哪裡？
+A. 臺南市
+B. 臺北市
+C. 臺中市
+D. 高雄市
+正解：B
+
+3. 哪個數字最大？
+① 2
+② 5
+③ 9
+④ 4
+答案：③
+
+4.（③）家鄉夏季炎熱，冬季寒冷，最可能在哪裡？①臺南 ②高雄 ③宜蘭 ④屏東</pre><p>每次重新按「生成 A／B 卷」都會重新洗牌 B 卷。只改標題或科目，可直接按同一按鈕更新預覽。列印時只印目前選定的一份試卷，不包含解答；解答表可另行列印。</p></details>
+</section>
+<section class="panel"><div class="toolbar"><h2 style="margin:0">② 預覽與列印</h2><span id="count" class="counter">尚未產生試卷</span></div>
+<nav class="tabs" aria-label="預覽切換"><button class="tab active" data-tab="A">A 卷試題</button><button class="tab" data-tab="B">B 卷試題</button><button class="tab" data-tab="answers">兩卷解答表</button></nav>
+<div class="actions" style="margin:0 0 16px"><button class="outline" id="printA">🖨 列印 A 卷</button><button class="outline" id="printB">🖨 列印 B 卷</button><button class="secondary" id="printAnswers">列印解答表</button><button class="outline" id="copyAnswers">複製兩卷答案</button></div>
+<div id="preview" class="paper"><div class="empty">請在左側貼上題目並點擊「生成 A／B 卷」。</div></div></section>
+</main><footer class="foot">設計 by 楊依依老師｜Emily AI Studio　·　所有處理均在本機瀏覽器完成，題目不會上傳</footer><div id="printHost" aria-hidden="true"></div>
+<script>
+'use strict';
+const $=s=>document.querySelector(s);
+const example=`1. 下列哪個數是偶數？\nA. 3\nB. 7\nC. 8\nD. 9\n答案：C\n\n2. 一星期共有幾天？\nA. 5 天\nB. 6 天\nC. 7 天\nD. 8 天\n答案：C\n\n3. 下列哪一種植物通常利用種子繁殖？\nA. 石頭\nB. 向日葵\nC. 玻璃杯\nD. 塑膠袋\n答案：B\n\n4. 12 ÷ 3 的答案是？\nA. 2\nB. 3\nC. 4\nD. 6\n答案：C\n\n5. 下列哪個數字最大？\n① 2\n② 5\n③ 9\n④ 4\n答案：③`;
+const letters=['A','B','C','D'];const circles=['①','②','③','④'];let state={A:[],B:[],tab:'A',ready:false};
+function escapeHTML(v){return String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function shuffle(items){const out=items.slice();for(let i=out.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[out[i],out[j]]=[out[j],out[i]];}return out;}
+function labelIndex(ch){const c=toLetter(ch);const idx=letters.indexOf(c);return idx>=0?idx:circles.indexOf(ch);}
+function toLetter(ch){return ch.normalize('NFKC').toUpperCase();}
+function parse(raw){
+ const input=raw.replace(/\r\n?/g,'\n').trim();
+ if(!input)throw Error('請先貼上題目。');
+ // 題號為首的出版社題庫，允許題與題之間沒有空白行。
+ const lines=input.split('\n');const blocks=[];let current='';
+ for(const line of lines){
+  const start=/^\s*(?:第\s*)?\d+\s*[.．、)）]\s*/.test(line);
+  if(start&&current.trim()){blocks.push(current.trim());current='';}
+  current+=(current?'\n':'')+line;
+ }
+ if(current.trim())blocks.push(current.trim());
+ // 無題號：允許使用空白行分隔多題。
+ const items=blocks.length===1&&!/^\s*(?:第\s*)?\d+\s*[.．、)）]/.test(blocks[0])?input.split(/\n\s*\n+/).filter(Boolean):blocks;
+ const result=[];
+ for(let k=0;k<items.length;k++){
+  let block=items[k].trim();
+  block=block.replace(/^\s*(?:第\s*)?\d+\s*[.．、)）]\s*/,'');
+  let answer=null;
+  // 出版社常用：4.（③）題目…… ；先去除正解符號，避免當作③選項。
+  const prefix=block.match(/^\s*[（(]\s*([A-DＡ-Ｄ①②③④])\s*[)）]\s*/i);
+  if(prefix){answer=labelIndex(prefix[1]);block=block.slice(prefix[0].length);}
+  // 標準的答案：C / 答案：③，允許答案行或放在題目最後。
+  const answerRE=/(?:^|\n)\s*(?:正確答案|參考答案|正解|答案|Answer|Ans)\s*[:：]\s*[（(]?\s*([A-DＡ-Ｄ①②③④])\s*[)）]?\s*[.。!！]?\s*(?=\n|$)/gi;
+  let match;let explicit=null;
+  while((match=answerRE.exec(block))!==null){if(explicit!==null)throw Error(`第 ${k+1} 題有多個答案標籤。`);explicit=labelIndex(match[1]);}
+  block=block.replace(answerRE,'\n').trim();
+  if(explicit!==null){if(answer!==null&&answer!==explicit)throw Error(`第 ${k+1} 題的題首答案與答案標籤不一致。`);answer=explicit;}
+  // 整段辨識選項：①臺南②高雄、① 臺南 ② 高雄，以及四行選項均適用。
+  const circleMatches=[...block.matchAll(/[①②③④]/g)];
+  const letterMatches=[...block.matchAll(/(?:^|[\n\s])([A-DＡ-Ｄ])\s*[.．、:：)）]\s*/gi)].map(m=>({index:m.index+(m[0].length-m[0].trimStart().length),label:m[1],length:m[0].length-(m[0].length-m[0].trimStart().length)}));
+  const style=circleMatches.length>=4?'circle':letterMatches.length>=4?'letter':circleMatches.length?'circle':'letter';
+  const marks=style==='circle'?circleMatches.map(m=>({index:m.index,label:m[0],length:m[0].length})):letterMatches;
+  if(!marks.length)throw Error(`第 ${k+1} 題找不到四個選項。`);
+  const stem=block.slice(0,marks[0].index).trim();
+  const options=Array(4).fill(null);
+  for(let i=0;i<marks.length;i++){
+   const m=marks[i],idx=labelIndex(m.label);
+   if(idx<0)continue;
+   // 先檢查選項標籤，才進行重新編號。
+   if(options[idx]!==null)throw Error(`第 ${k+1} 題的選項 ${style==='circle'?circles[idx]:letters[idx]} 出現兩次；請檢查是否有其他圈號混入選項內容。`);
+   options[idx]=block.slice(m.index+m.length,i+1<marks.length?marks[i+1].index:block.length).trim().replace(/^\s*[.．、:：)）]\s*/,'').trim();
+  }
+  const missing=options.map((v,i)=>!v?i:-1).filter(i=>i>=0);
+  if(missing.length)throw Error(`第 ${k+1} 題缺少選項：${missing.map(i=>(style==='circle'?circles:letters)[i]).join('、')}。`);
+  if(!stem)throw Error(`第 ${k+1} 題缺少題幹（請確認題號後的題目文字）。`);
+  if(answer===null)throw Error(`第 ${k+1} 題缺少答案。可在題首寫（③），或在題末寫「答案：③」。`);
+  result.push({stem,options,answer,style});
+ }
+ return result;
+}
+function answerLabel(q){return (q.style==='circle'?circles:letters)[q.answer];}
+function createB(A){return shuffle(A).map(q=>{const indices=shuffle([0,1,2,3]);return{stem:q.stem,options:indices.map(i=>q.options[i]),answer:indices.indexOf(q.answer),style:q.style};});}
+function header(type){return `<h2>${escapeHTML($('#titleInput').value.trim()||'學習評量')}　${type} 卷</h2><div class="meta"><span>${escapeHTML($('#subjectInput').value.trim())}</span><span>班級：______　座號：______　姓名：____________</span></div>`;}
+function questionHTML(q,i){return `<article class="question"><div class="q-title">${i+1}. ${escapeHTML(q.stem)}</div><div class="choices">${q.options.map((c,j)=>`<div class="choice">${q.style==='circle'?circles[j]:`（${letters[j]}）`}${escapeHTML(c)}</div>`).join('')}</div></article>`;}
+function paperHTML(type){const arr=state[type];return `${header(type)}${arr.map(questionHTML).join('')}`;}
+function answerTable(type){const arr=state[type];let html=`<h2>${escapeHTML($('#titleInput').value.trim()||'學習評量')}　${type} 卷解答</h2><table class="answers"><thead><tr><th>題號</th><th>答案</th><th>題號</th><th>答案</th></tr></thead><tbody>`;for(let i=0;i<arr.length;i+=2){html+=`<tr><td>${i+1}</td><td>${answerLabel(arr[i])}</td><td>${arr[i+1]?i+2:''}</td><td>${arr[i+1]?answerLabel(arr[i+1]):''}</td></tr>`;}return html+'</tbody></table>';}
+function answersHTML(){return `<div>${answerTable('A')}</div><div style="margin-top:32px;break-before:page">${answerTable('B')}</div>`;}
+function showTab(tab){state.tab=tab;document.querySelectorAll('[data-tab]').forEach(b=>{b.classList.toggle('active',b.dataset.tab===tab);b.setAttribute('aria-pressed',String(b.dataset.tab===tab));});$('#preview').innerHTML=!state.ready?'<div class="empty">請在左側貼上題目並點擊「生成 A／B 卷」。</div>':tab==='answers'?answersHTML():paperHTML(tab);}
+function message(text,kind){const el=$('#message');el.textContent=text;el.className='message '+kind;}
+function generate(){try{const A=parse($('#source').value);state.A=A;state.B=createB(A);state.ready=true;$('#count').textContent=`共 ${A.length} 題｜A、B 卷已產生`;message(`✅ 已產生 ${A.length} 題 A／B 卷；B 卷題序與選項已重新洗牌，解答同步更新。`,'ok');showTab('A');}catch(e){state={A:[],B:[],tab:'A',ready:false};$('#count').textContent='題目格式需要修正';message('⚠️ '+e.message,'error');showTab('A');}}
+function printPaper(type){if(!state.ready){message('請先生成試卷，再執行列印。','error');return;}const host=$('#printHost');host.innerHTML=`<div class="paper">${type==='answers'?answersHTML():paperHTML(type)}</div>`;host.classList.add('printing');window.print();}
+window.addEventListener('afterprint',()=>{$('#printHost').classList.remove('printing');$('#printHost').innerHTML='';});
+$('#generate').addEventListener('click',generate);$('#example').addEventListener('click',()=>{$('#source').value=example;generate();});$('#clear').addEventListener('click',()=>{$('#source').value='';state={A:[],B:[],tab:'A',ready:false};$('#count').textContent='尚未產生試卷';message('','');showTab('A');});document.querySelectorAll('[data-tab]').forEach(b=>b.addEventListener('click',()=>showTab(b.dataset.tab)));$('#printA').addEventListener('click',()=>printPaper('A'));$('#printB').addEventListener('click',()=>printPaper('B'));$('#printAnswers').addEventListener('click',()=>printPaper('answers'));
+$('#copyAnswers').addEventListener('click',async()=>{if(!state.ready){message('請先生成試卷。','error');return;}const s=['A','B'].map(t=>`${t} 卷答案\n${state[t].map((q,i)=>`${i+1}. ${answerLabel(q)}`).join('　')}`).join('\n\n');try{await navigator.clipboard.writeText(s);message('✅ 兩卷答案已複製。','ok');}catch{const ta=document.createElement('textarea');ta.value=s;document.body.appendChild(ta);ta.select();window.__quizCopyAllowed=true;const done=document.execCommand('copy');window.__quizCopyAllowed=false;ta.remove();message(done?'✅ 兩卷答案已複製。':'無法自動複製，請切換到解答表手動複製。',done?'ok':'error');}});
+$('#source').value=example;generate();
+</script>
+<script>
+// 一般操作層級的防拷提醒：不會阻止正常題目輸入、列印或頁面內的答案複製按鈕。
+(()=>{
+ const editable=e=>e.closest('textarea,input,[contenteditable="true"]');
+ document.addEventListener('contextmenu',e=>e.preventDefault());
+ document.addEventListener('dragstart',e=>{if(!editable(e.target))e.preventDefault();});
+ document.addEventListener('keydown',e=>{
+  const k=e.key.toLowerCase(),mod=e.ctrlKey||e.metaKey;
+  if(e.key==='F12'||(mod&&(k==='u'||k==='s'))||(mod&&e.shiftKey&&['i','j','c'].includes(k))||(mod&&k==='c'&&!editable(e.target))){e.preventDefault();e.stopPropagation();}
+ },true);
+ document.addEventListener('copy',e=>{if(!window.__quizCopyAllowed&&!editable(e.target))e.preventDefault();},true);
+})();
+</script>
+</body>
+</html>
+
