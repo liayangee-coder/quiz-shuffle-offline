@@ -1,4 +1,4 @@
-# 考題隨機洗牌產生器
+# 星際命題室｜A／B 卷洗牌工具
 
 設計 by 楊依依老師｜Emily AI Studio
 
@@ -17,3 +17,4 @@
 ## 署名
 
 設計 by 楊依依老師｜Emily AI Studio
+
